@@ -2,11 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите длину массива и интервала: ");
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        System.out.println(m + " " + n);
+        int n = Integer.parseInt(args[0]);
+        int m = Integer.parseInt(args[1]);
         int[] nums = new int[n];
         for(int i = 0; i < n; ++i){
             nums[i] = i+1;
@@ -17,7 +14,8 @@ public class Main {
         while(!stop){
             res += String.valueOf(nums[step]);
             step = (step + m);
-            if(step > n) step = step % n - 1;
+            if(step > n && step % n != 0) step = step % n - 1;
+            else if(step % n == 0) step = 0;
             else step = step - 1;
             stop = step == 0;
         }

@@ -5,12 +5,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите путь к файлу с окружностью: ");
-        String path = sc.nextLine();
+        String path1 = args[0], path2 = args[1];
         double r, a0, b0, a, b;
         try {
-            FileReader fileReader = new FileReader(path);
+            FileReader fileReader = new FileReader(path1);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line = bufferedReader.readLine();
@@ -20,12 +18,10 @@ public class Main {
             line = bufferedReader.readLine();
             r = Integer.parseInt(line);
 
-            System.out.println(a0 + " " + b0 + " " + r);
+            //System.out.println(a0 + " " + b0 + " " + r);
             bufferedReader.close();
 
-            System.out.println("Введите путь к файлу с точками: ");
-            path = sc.nextLine();
-            fileReader = new FileReader(path);
+            fileReader = new FileReader(path2);
             bufferedReader = new BufferedReader(fileReader);
 
             while ((line = bufferedReader.readLine()) != null) {
